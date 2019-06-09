@@ -1,7 +1,7 @@
 <h2>Products</h2>
-<div *ngFor="let product of products">
+<div *ngFor="let product of products; index as productId">
   <!--Interpolation {{}} lets you render the property value as text. Property binding lets you render the property value in template expression -->
-  <a [title]="product.name + ' details'"><h3>{{product.name}}</h3></a>
+  <a [title]="product.name + ' details'" [routerLink] = "['/products',productId]"><h3>{{product.name}}</h3></a>
 
   <p *ngIf="product.description">
 Description : {{product.description}}
@@ -14,7 +14,6 @@ Description : {{product.description}}
   (notify)="onNotify()">
   </app-product-alerts>
 </div>
-<!-- Components define areas of responsibility in your UI that let you reuse these sets of UI functionality. -->
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
